@@ -1,0 +1,18 @@
+--1) This shows the first 10 rows of the dataset and helps understand structure and fields of data
+SELECT *
+FROM healthcare_insurance
+LIMIT 10;
+
+--2) Look at how many specific regions we are looking at as part of the dataset use keyword DISTINCT
+SELECT DISTINCT region
+FROM healthcare_insurance;
+
+--3) Avg, min and max
+SELECT
+AVG(charges) AS avg_charges,
+MIN(charges) AS min_charges,
+MAX(charges) AS max_charges -- no comma after last column in select statement
+FROM healthcare_insruance; -- semi colon ends sql statement use commas in between within single query
+
+--4) count male females
+/*
