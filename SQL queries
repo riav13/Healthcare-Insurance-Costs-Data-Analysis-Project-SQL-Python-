@@ -1,3 +1,4 @@
+--BASIC SQL QUERIES TO UNDERSTAND THE DATA (descriptive analysis)
 --1) This shows the first 10 rows of the dataset and helps understand structure and fields of data
 SELECT *
 FROM healthcare_insurance
@@ -15,4 +16,99 @@ MAX(charges) AS max_charges -- no comma after last column in select statement
 FROM healthcare_insruance; -- semi colon ends sql statement use commas in between within single query
 
 --4) count male females
+-- all of these queries do the same thing best one is third one
 /*
+SELECT COUNT(*)
+FROM healthcare_insurance
+WHERE sex = "female";
+
+SELECT COUNT(*)
+FROM healthcare_insurance
+WHERE sex = "male"; */
+
+SELECT sex, COUNT(*)
+FROM healthcare_insurance
+GROUP BY sex;
+
+--SELECT DISTINCT sex
+--FROM healthcare_insurance
+
+--5) Gender distribution of charges
+SELECT sex, AVG(charges) AS average_charges --selecting the sex and avg charges for output
+FROM healthcare_insurance -- from the table
+GROUP BY sex; -- grouping by sex, so one column for male and one column for female
+
+--BASIC SQL QUERIES for EDA (exploratory data analysis)
+--6)Count of Smokers Versus Nonsmokers
+SELECT smoker, COUNT(*) AS count -- selecting the value of smoker so we can see if its yes or no and the count 
+FROM healthcare_insurance -- from our table
+GROUP BY smoker; -- group by smoker means we want to group teh data BY the column smoker and return vals
+
+--7)Impact of Smoking on Charges
+SELECT smoker, AVG(charges) -- select the smoker and average charges
+FROM healthcare_insurance -- from the table
+GROUP BY smoker; -- group by whether they are smoker or not (so a yes or no)
+
+--8) Difference of Impact of Smoking on Charges
+SELECT 
+   AVG(CASE WHEN smoker = 'yes' THEN charges END) -- calculate average charges for smokers only
+   - AVG(CASE WHEN smoker = 'no' THEN charges END) -- subtract average charges for non smokers
+  AS avg_charge_difference -- set the name of the result as avg_charge_difference
+FROM healthcare_insurance -- from the insurance table
+
+--9) Avg charges by age group
+SELECT age, AVG(charges) AS avg_charge -- we are selecting the age column and the average charges for the output
+FROM healthcare_insurance -- from the table of data
+GROUP BY age -- we are grouping by age, because we want to separate the columns of table out by AGE
+ORDER BY avg_charge; -- order by in ascending order (lowest to highest order is default so dont rlly need word ASC)
+
+--10)top 5 people who tend to have the highest healthcare charges
+SELECT *
+FROM healthcare_insurance -- selecting from the table 
+ORDER BY charges DESC -- we want to order it by the healthcare insurance charges from highest to lowest
+LIMIT 5; -- we are only looking here at the first 5 rows (so the top 5 highest charges)
+
+--11) Average Charges by Region 
+SELECT region, AVG(charges as AVG -- selecting the region and avg charges to show up in the output
+FROM healthcare_insurance -- selecting from the table 
+GROUP BY region -- group by region so each column of avg charges shows the avg for THAT region
+ORDER BY AVG -- ordering default from lowest to highest 
+
+--12) Filtering out only high average charges exceeding $12,000
+SELECT region, AVG(charges) AS avg_charge -- selecting theregion and avg charges to display output
+FROM healthcare_insurance -- from the table
+GROUP BY region -- grouping by the region so that each region is a separate column
+HAVING AVG(charges) > 12000 -- HAVING filters groups after the grouping, WHERE filters rows before grouping
+
+--13) Filtering out by all females with more than 2 children
+SELECT age, sex, children, charges
+FROM healthcare_insurance
+WHERE sex = 'female' AND children > 2
+ORDER BY charges ASC;
+
+--14) Charges based on # of children 
+SELECT children, AVG(charges) AS average_charges -- selecting the children column and average charges
+FROM healthcare_insurance -- from the table
+GROUP BY children -- grouping by children for the results 0 1 2 3 4 children
+ORDER BY children ASC; -- ordering from highest to lowest charges
+
+---USING SUBQUERIES more advanced 
+--15) Filter out people paying less than the average
+SELECT *
+FROM healthcare_insurance -- from the table
+WHERE charges < (SELECT AVG(charges) FROM healthcare_insurance) - subquery to select the charges less than the selected avg
+ORDER BY charges DESC
+LIMIT 45;
+
+--16)Filter out people paying more than the average charge
+SELECT *
+FROM healthcare_insurance -- from the table
+WHERE charges > (SELECT AVG(charges) FROM healthcare_insurance) - subquery to select the charges less than the selected avg
+ORDER BY charges DESC
+LIMIT 45;
+
+--17) Show smokers who pay more than the avg charges
+SELECT smoker, COUNT(*) AS count_above_avg -- selecting if they are a smoker or not and counting them
+FROM healthcare_insurance -- from the table
+WHERE charges > (SELECT AVG(charges) FROM healthcare_insurance) --subquery to calc avg charges
+GROUP BY smoker; -- grouping by if they are a smoker or not 
