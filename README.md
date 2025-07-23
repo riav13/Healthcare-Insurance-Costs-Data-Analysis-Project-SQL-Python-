@@ -33,13 +33,12 @@ Finally, I compared the number of smokers and non smokers who are paying more th
 -----------------------------------------------------------------------------------------------------------------------------
 
 
-The insights from this analysis are directly applicable to a real world insurance company. Risk based pricing strategies can be better informed by understanding how smoking, age, and region correlate with higher costs. For example, individuals who are older or smoke may justifiably pay higher premiums based on their risk profile. Additionally, recognizing that the southeast region incurs higher average costs could prompt targeted health programs or policy changes. The finding that larger families often have lower costs might influence how insurers design family coverage plans. Ultimately, this project demonstrates how structured data and SQL analysis can drive smarter pricing, risk assessment, and customer segmentation strategies.
+The insights from this analysis are directly applicable to a real world insurance company. Risk based pricing strategies can be better informed by understanding how smoking, age, and region correlate with higher costs. For example, individuals who are older or smoke may justifiably pay higher premiums based on their risk profile. Additionally, recognizing that the southeast region incurs higher average costs could prompt targeted health programs or policy changes. The finding that larger families often have lower costs might influence how insurers design family coverage plans. Ultimately, this project demonstrates how structured data and SQL analysis can drive smarter pricing, risk assessment, and other strategies.
 
 ----------------------------------------------------------------------------------------------------------------
 
 ## Conclusion
 
-This project highlights not only technical fluency in SQL, but also the ability to critically analyze and interpret data in a way that leads to actionable business insights. Through structured queries, subqueries, grouping, and filtering, I was able to uncover patterns that would be valuable for any data-driven insurance provider. Beyond just querying the data, I sought to understand it—identifying key trends, forming hypotheses, and drawing real-world conclusions. As an aspiring data analytics intern, I bring both technical skills and analytical reasoning to the table, ready to contribute to impactful data projects.
-
+This project highlights not only technical fluency in SQL, but also the ability to critically analyze and interpret data in a way that leads to actionable business insights. Through structured queries, subqueries, grouping, and filtering, I was able to uncover patterns that could be valuable for insurance providers. Beyond just querying the data, I wanted to understand it to identify key trends to help me draw real world conclusions. 
 
 
