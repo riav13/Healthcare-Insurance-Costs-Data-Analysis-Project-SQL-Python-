@@ -3,7 +3,7 @@ Healthcare-Insurance-Exploratory-Data-Analysis-with-SQL
 ## Author: Ria Verma
 ## Tools/Languages Used: SQLite, SQL,Python, Jupyter Notebook (optional), Microsoft Excel
 
-## Goal: The goal of this project is to investigate patterns in US healthcare insurance costs by using a mix of basic and intermediate SQL queries I learned through IBM certiifcation. I analyzed a dataset fro Kaggle which contained over 1,300 individual records. For this exploratory data analysis project, my primary focus was to understand how variables such as age, gender, smoking, region, and family size influence healthcare costs. I wanted to practice my sql/ python for data visualization and this was my first EDA project where I uncovered insights that are directly relevant to business decisiosn making in the insurance/healthcare industry.
+## Goal: The goal of this project is to investigate patterns in US healthcare insurance costs by using a mix of basic and intermediate SQL queries I learned through IBM certiifcation. I analyzed a dataset fro Kaggle which contained over 1,300 individual records. For this exploratory data analysis project, my primary focus was to understand how variables such as age, gender, smoking, region, and family size influence healthcare costs. I wanted to practice my sql/ python for data visualization and this was my first EDA project where I uncovered insights that are directly relevant to business decision making in the insurance/healthcare industry.
 
 ------------------------------------------------------------------------------------------------------------------------------
 ## Dataset Summary
